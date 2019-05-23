@@ -1,0 +1,36 @@
+schema {
+    query: Query
+}
+
+type Query {
+    hero : Hero
+}
+
+type Hero{
+    name : String
+    friends : [Hero]
+}
+
+interface Character {
+    # The id of the character.
+    id: ID!
+    # The name of the character.
+    name: String!
+    # The friends of the character, or an empty list if they
+    # have none.
+    friends: [Character]
+    # Which movies they appear in.
+    appearsIn: [Episode]!
+    # All secrets about their past.
+    secretBackstory : String @deprecated(reason : "We have decided that this is not canon")
+}
+
+# One of the films in the Star Wars Trilogy
+enum Episode {
+    # Released in 1977
+    NEWHOPE
+    # Released in 1980.
+    EMPIRE
+    # Released in 1983.
+    JEDI
+}
