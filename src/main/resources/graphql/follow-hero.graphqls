@@ -4,11 +4,17 @@ schema {
 
 type Query {
     hero : Hero
+    human(id:String) : Human
 }
 
 type Hero{
     name : String
     friends : [Hero]
+}
+
+type Human{
+    name : String
+    height : Float
 }
 
 interface Character {

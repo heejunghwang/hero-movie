@@ -2,6 +2,7 @@ package example.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import example.data.Hero;
+import example.data.Human;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,6 +15,10 @@ import java.util.List;
 public class Query implements GraphQLQueryResolver {
 
     public Hero getHero() {
+       return this.getEmpireHero();
+    }
+
+    private Hero getEmpireHero(){
         Hero hero = new Hero();
         hero.setName("R2-D2");
 
@@ -28,5 +33,12 @@ public class Query implements GraphQLQueryResolver {
 
         hero.setFriends(friends);
         return hero;
+    }
+
+    public Human getHuman(String id){
+        Human human = new Human();
+        human.setName("Luke Skywalker");
+        human.setHeight(1.72f);
+        return human;
     }
 }
