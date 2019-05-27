@@ -4,6 +4,7 @@ schema {
 
 type Query {
     hero : Hero
+    getHeroByEpisode(episode: Episode): Hero
     human(id:String) : Human
 }
 
